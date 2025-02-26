@@ -1,0 +1,1 @@
+print("0" in "0. It is not related ")
