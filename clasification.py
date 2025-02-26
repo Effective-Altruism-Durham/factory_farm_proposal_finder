@@ -11,14 +11,14 @@ def is_factory_farm(description):
     message = [{"role": "user", "content": 'Answer with either 0 or 1! Does this seem related to a factory farm?  """'+description+'"""'}]
     response = ollama.chat(model="gemma:2b-instruct-q4_0", messages=message)
     print(response["message"], "👾", message)
-    result = False
+    result = None
     if "1" in response["message"]["content"] or "yes" in response["message"]["content"].lower():
         result = True
     elif "0" in response["message"]["content"] or "no" in response["message"]["content"].lower():
         result = False
     else:
         print("Invalid response received")
-        # result = None
+        result = None
     return result
 
 # Create a new column 'Factory farm' with boolean values
